@@ -2,6 +2,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:mua/login_page.dart';
 // import 'package:location/location.dart' ;
 
 
@@ -53,28 +54,64 @@ class _HomePageState extends State<HomePage> {
 //     });
 // }
    
-  final gmaps = GoogleMap(
-    scrollGesturesEnabled: true,
-    tiltGesturesEnabled: true,
-    rotateGesturesEnabled: true,
-    myLocationEnabled: true,
-    mapType: MapType.normal,
-    zoomGesturesEnabled: true,
-    initialCameraPosition: CameraPosition(
-      target: LatLng(-6.228915,106.7339253),
-      zoom: 15.0,
-    ),    
-    markers: Set<Marker>()
-      ..add(Marker(
-        markerId: MarkerId('test'),
-        position: LatLng(-6.228915,106.7339253),
-        infoWindow: InfoWindow(title: "Title", snippet: "test"),
-        // onTap: () => ,
-      )),
-  );
+  // final gmaps = GoogleMap(
+  //   scrollGesturesEnabled: true,
+  //   tiltGesturesEnabled: true,
+  //   rotateGesturesEnabled: true,
+  //   myLocationEnabled: true,
+  //   mapType: MapType.normal,
+  //   zoomGesturesEnabled: true,
+  //   initialCameraPosition: CameraPosition(
+  //     target: LatLng(-6.228915,106.7339253),
+  //     zoom: 15.0,
+  //   ),    
+  //   markers: Set<Marker>()
+  //     ..add(Marker(
+  //       markerId: MarkerId('test'),
+  //       icon: BitmapDescriptor.defaultMarker,
+  //       position: LatLng(-6.228915,106.7339253),
+  //       infoWindow: InfoWindow(
+  //         title: "Title", 
+  //         snippet: "test",
+  //         onTap: (){
+  //           // Navigator.of(context).pushNamed(RegisterPage.tag);
+  //           Navigator.push(builder, (context)=> LoginPage(login:login))
+  //         }
+  //       ),
+  //       // onTap: (){
+
+  //       // }
+  //     )),
+  // );
   
+  // bool showFab = true;  
+  // @override
+  // Widget build(BuildContext context) {
+  //   return showFab
+  //     ? FloatingActionButton(
+  //         onPressed: () {
+  //           var bottomSheetController = showBottomSheet(
+  //             context: context,
+  //             builder: (context) => Container(
+  //               color: Colors.grey[900],
+  //               height: 250,
+  //             ));              
+  //           showFoatingActionButton(false);              
+  //           bottomSheetController.closed.then((value) {
+  //             showFoatingActionButton(true);
+  //           });
+  //         },
+  //       )
+  //     : Container();
+  // }  
+  // void showFoatingActionButton(bool value) {
+  //   setState(() {
+  //     showFab = value;
+  //   });
+  // }
 
 
+  
   @override
   Widget build(BuildContext context) { 
     return Scaffold(
@@ -132,8 +169,36 @@ class _HomePageState extends State<HomePage> {
         ),
 
         ),
-      body: gmaps
-      
+      body: GoogleMap(
+    scrollGesturesEnabled: true,
+    tiltGesturesEnabled: true,
+    rotateGesturesEnabled: true,
+    myLocationEnabled: true,
+    mapType: MapType.normal,
+    zoomGesturesEnabled: true,
+    initialCameraPosition: CameraPosition(
+      target: LatLng(-6.228915,106.7339253),
+      zoom: 15.0,
+    ),    
+    markers: Set<Marker>()
+      ..add(Marker(
+        markerId: MarkerId('test'),
+        icon: BitmapDescriptor.defaultMarker,
+        position: LatLng(-6.228915,106.7339253),
+        infoWindow: InfoWindow(
+          title: "Title", 
+          snippet: "test",
+          onTap: (){
+            // Navigator.of(context).pushNamed(RegisterPage.tag);
+            Navigator.pushNamed(context, LoginPage.tag);
+          },
+        ),
+        // onTap: (){
+
+        // }
+      )),
+  ),  
+
       
       // floatingActionButton: new FloatingActionButton(
       //   onPressed: (){
