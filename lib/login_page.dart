@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
     final email = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
-      initialValue: '.com',
+      initialValue: '',
       decoration: InputDecoration(
         hintText: 'Email',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
 
     final password = TextFormField(
       autofocus: false,
-      initialValue: 'some password',
+      initialValue: '',
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Password',
@@ -76,8 +76,8 @@ class _LoginPageState extends State<LoginPage> {
 
     final registerButton = FlatButton(
       child: Text(
-        'register Page',
-        style:TextStyle(color: Colors.black54),
+        'Sign up',
+        style:TextStyle(color: Colors.blueAccent),
       ),
       onPressed: (){
         Navigator.of(context).pushNamed(RegisterPage.tag);

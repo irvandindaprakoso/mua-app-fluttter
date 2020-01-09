@@ -2,7 +2,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:mua/login_page.dart';
+import 'package:mua/profile_user.dart';
 // import 'package:location/location.dart' ;
 
 
@@ -13,22 +13,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Completer<GoogleMapController> _controller = Completer();
+  // Completer<GoogleMapController> _controller = Completer();
 
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(-6.228915,106.7339253),
-    zoom: 14.4746,
-  );
+  // static final CameraPosition _kGooglePlex = CameraPosition(
+  //   target: LatLng(-6.228915,106.7339253),
+  //   zoom: 14.4746,
+  // );
   
-   static final CameraPosition _kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(-6.228915,106.7339253),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
+  //  static final CameraPosition _kLake = CameraPosition(
+  //     bearing: 192.8334901395799,
+  //     target: LatLng(-6.228915,106.7339253),
+  //     tilt: 59.440717697143555,
+  //     zoom: 19.151926040649414);
 
 
-  bool isSwitched = true;
-  bool wedVal = false;
+  bool graduation = false;
+  bool bridal = false;
+  bool party = false;
+  bool simple = false;
+  bool photoshoot = false;
+  bool hairdo = false;
 
 // Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
 // void _add() {
@@ -143,24 +147,72 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           children: <Widget>[
             CheckboxListTile(
-              value: wedVal,
+              value: graduation,
               onChanged: (value){
                 setState(() {
-                  wedVal = value;
+                  graduation = value;
                 });
               },
-              title: new Text('3333'),
+              title: new Text('Graduation'),
               controlAffinity: ListTileControlAffinity.leading,
               activeColor: Colors.green,
             ),
             CheckboxListTile(
-              value: wedVal,
+              value: bridal,
               onChanged: (value){
                 setState(() {
-                  wedVal = value;
+                  bridal = value;
                 });
               },
-              title: new Text('3333'),
+              title: new Text('Bridal'),
+              controlAffinity: ListTileControlAffinity.leading,
+              // subtitle: new Text('Subtitle'),
+              activeColor: Colors.green,
+            ),
+            CheckboxListTile(
+              value: party,
+              onChanged: (value){
+                setState(() {
+                  party = value;
+                });
+              },
+              title: new Text('Party'),
+              controlAffinity: ListTileControlAffinity.leading,
+              // subtitle: new Text('Subtitle'),
+              activeColor: Colors.green,
+            ),
+            CheckboxListTile(
+              value: simple,
+              onChanged: (value){
+                setState(() {
+                  simple = value;
+                });
+              },
+              title: new Text('Simple'),
+              controlAffinity: ListTileControlAffinity.leading,
+              // subtitle: new Text('Subtitle'),
+              activeColor: Colors.green,
+            ),
+            CheckboxListTile(
+              value: photoshoot,
+              onChanged: (value){
+                setState(() {
+                  photoshoot = value;
+                });
+              },
+              title: new Text('Photoshoot'),
+              controlAffinity: ListTileControlAffinity.leading,
+              // subtitle: new Text('Subtitle'),
+              activeColor: Colors.green,
+            ),
+            CheckboxListTile(
+              value: hairdo,
+              onChanged: (value){
+                setState(() {
+                  hairdo = value;
+                });
+              },
+              title: new Text('Hairdo'),
               controlAffinity: ListTileControlAffinity.leading,
               // subtitle: new Text('Subtitle'),
               activeColor: Colors.green,
@@ -170,34 +222,34 @@ class _HomePageState extends State<HomePage> {
 
         ),
       body: GoogleMap(
-    scrollGesturesEnabled: true,
-    tiltGesturesEnabled: true,
-    rotateGesturesEnabled: true,
-    myLocationEnabled: true,
-    mapType: MapType.normal,
-    zoomGesturesEnabled: true,
-    initialCameraPosition: CameraPosition(
-      target: LatLng(-6.228915,106.7339253),
-      zoom: 15.0,
-    ),    
-    markers: Set<Marker>()
-      ..add(Marker(
-        markerId: MarkerId('test'),
-        icon: BitmapDescriptor.defaultMarker,
-        position: LatLng(-6.228915,106.7339253),
-        infoWindow: InfoWindow(
-          title: "Title", 
-          snippet: "test",
-          onTap: (){
-            // Navigator.of(context).pushNamed(RegisterPage.tag);
-            Navigator.pushNamed(context, LoginPage.tag);
-          },
-        ),
-        // onTap: (){
+        scrollGesturesEnabled: true,
+        tiltGesturesEnabled: true,
+        rotateGesturesEnabled: true,
+        myLocationEnabled: true,
+        mapType: MapType.normal,
+        zoomGesturesEnabled: true,
+        initialCameraPosition: CameraPosition(
+          target: LatLng(-6.228915,106.7339253),
+          zoom: 15.0,
+        ),    
+        markers: Set<Marker>()
+          ..add(Marker(
+            markerId: MarkerId('test'),
+            icon: BitmapDescriptor.defaultMarker,
+            position: LatLng(-6.228915,106.7339253),
+            infoWindow: InfoWindow(
+              title: "Title", 
+              snippet: "test",
+              onTap: (){
+                // Navigator.of(context).pushNamed(RegisterPage.tag);
+                Navigator.pushNamed(context, ProfileUser.tag);
+              },
+            ),
+            // onTap: (){
 
-        // }
-      )),
-  ),  
+            // }
+          )),
+      ),  
 
       
       // floatingActionButton: new FloatingActionButton(
