@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) { 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Google Maps Flutter'),
+        title: Text('Filter Map'),
       ),
       bottomSheet: Container(
         width: MediaQuery.of(context).size.width,
