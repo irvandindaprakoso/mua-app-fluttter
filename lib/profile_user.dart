@@ -21,7 +21,7 @@ class _ProfileUserState extends State<ProfileUser> {
     final String imgUrl = 'https://raw.githubusercontent.com/irvandindaprakoso/mua-app-fluttter/master/lib/assets/photo6334703250225342831.jpg';
 
     return new Stack(children: <Widget>[
-      new Container(color: Colors.purple[300],),
+      new Container(color: Colors.purple[300]),
       new Image.network(imgUrl, fit: BoxFit.fill,),
       new BackdropFilter(
       filter: new ui.ImageFilter.blur(
@@ -31,7 +31,7 @@ class _ProfileUserState extends State<ProfileUser> {
       child: new Container(
       decoration: BoxDecoration(
       color:  Colors.purple[300].withOpacity(0.9),
-      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+      // borderRadius: BorderRadius.all(Radius.circular(50.0)),
       ),)),
       new Scaffold(
           appBar: new AppBar(
@@ -40,7 +40,7 @@ class _ProfileUserState extends State<ProfileUser> {
             elevation: 0.0,
             backgroundColor: Colors.transparent,
           ),
-          drawer: new Drawer(child: new Container(),),
+          // drawer: new Drawer(child: new Container(),),
           backgroundColor: Colors.transparent,
           body: new Center(
             child: new Column(

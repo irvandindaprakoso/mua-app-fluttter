@@ -1,5 +1,5 @@
 
-import 'dart:async';
+// import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mua/profile_user.dart';
@@ -13,20 +13,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // Completer<GoogleMapController> _controller = Completer();
 
-  // static final CameraPosition _kGooglePlex = CameraPosition(
-  //   target: LatLng(-6.228915,106.7339253),
-  //   zoom: 14.4746,
-  // );
-  
-  //  static final CameraPosition _kLake = CameraPosition(
-  //     bearing: 192.8334901395799,
-  //     target: LatLng(-6.228915,106.7339253),
-  //     tilt: 59.440717697143555,
-  //     zoom: 19.151926040649414);
-
-
+  // set checkbox to false by default
   bool graduation = false;
   bool bridal = false;
   bool party = false;
@@ -122,10 +110,12 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Filter Map'),
       ),
+
+      // create bottom sheet in app
       bottomSheet: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height / 3.5,
-        // padding: EdgeInsets.all(2.0),
+        // create box in bottom sheet
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -144,8 +134,10 @@ class _HomePageState extends State<HomePage> {
             Colors.white
           ]),
         ),
+        // create List View in box decoration
         child: ListView(
           children: <Widget>[
+            // create checkbox in List view
             CheckboxListTile(
               value: graduation,
               onChanged: (value){
@@ -221,6 +213,7 @@ class _HomePageState extends State<HomePage> {
         ),
 
         ),
+      // calling google maps API
       body: GoogleMap(
         scrollGesturesEnabled: true,
         tiltGesturesEnabled: true,
@@ -229,19 +222,21 @@ class _HomePageState extends State<HomePage> {
         mapType: MapType.normal,
         zoomGesturesEnabled: true,
         initialCameraPosition: CameraPosition(
+          // default position (sudirman)
           target: LatLng(-6.228915,106.7339253),
           zoom: 15.0,
         ),    
+        // set marker
         markers: Set<Marker>()
           ..add(Marker(
             markerId: MarkerId('test'),
             icon: BitmapDescriptor.defaultMarker,
             position: LatLng(-6.228915,106.7339253),
             infoWindow: InfoWindow(
-              title: "Title", 
-              snippet: "test",
+              title: "Tap me !", 
+              snippet: "Hi can U Tap me ?",
               onTap: (){
-                // Navigator.of(context).pushNamed(RegisterPage.tag);
+                // Navigation after click infowindow above
                 Navigator.pushNamed(context, ProfileUser.tag);
               },
             ),
@@ -249,63 +244,7 @@ class _HomePageState extends State<HomePage> {
 
             // }
           )),
-      ),  
-
-      
-      // floatingActionButton: new FloatingActionButton(
-      //   onPressed: (){
-      //     showModalBottomSheet(
-      //       context: context,
-      //         builder: (BuildContext bc){
-      //           return Container(
-      //             child: new Wrap(
-      //               children: <Widget>[
-      //                 Switch(
-      //                   value: isSwitched,
-      //                   onChanged: (value){
-      //                     setState(() {
-      //                       isSwitched = value;
-      //                     });
-      //                   },
-      //                   activeTrackColor: Colors.lightGreenAccent, 
-      //                   activeColor: Colors.green,
-      //                 ),
-      //                 CheckboxListTile(
-      //                   value: wedVal,
-      //                   onChanged: (value){
-      //                     setState(() {
-      //                       wedVal = value;
-      //                     });
-      //                   },
-      //                   title: new Text('3333'),
-      //                   controlAffinity: ListTileControlAffinity.leading,
-      //                   subtitle: new Text('Subtitle'),
-      //                   secondary: new Icon(Icons.archive),
-      //                   activeColor: Colors.red,
-      //                 ),
-
-      //                 new Padding(
-      //                   padding: EdgeInsets.symmetric(vertical: 16.0),
-      //                   child: RaisedButton(
-      //                     shape: RoundedRectangleBorder(
-      //                       borderRadius: BorderRadius.circular(8),
-      //                     ),
-      //                     onPressed: () {
-      //                       Navigator.of(context).pushNamed(HomePage.tag);
-      //                     },
-      //                     padding: EdgeInsets.all(12),
-      //                     color: Colors.lightBlueAccent,
-      //                     child: Text('Log In', style: TextStyle(color: Colors.white)),
-      //                   ),
-      //                 ),
-      //               ],
-      //             ),
-      //           );
-      //         }
-      //     );
-      //   },
-      //   child: new Icon(Icons.add),
-      // ),
+      ), 
     );
   }
 }
